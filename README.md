@@ -3,11 +3,11 @@ A key exchange protocol algorithm based on elliptic curve cryptography for iOS.
 # ECDH算法
 一种基于椭圆曲线密码学的iOS密钥交换协议算法。
 
-//ECDH非对称加密方式交换对称密钥流程：
-//1️⃣调用方法generateKeys生成密钥对(公钥64字节和私钥32字节)
-//2️⃣调用sendPublicKey方法，将2️⃣的公钥发给另一方
-//3️⃣等待另一方Notify发送它的公钥过来，调用configThirdPublicKey将另一方的公钥和自己的私钥生成share key，对方也通过3️⃣接收到的公钥与其私钥生成share key，两个share key是一样的
-//4️⃣将共享密钥发送到后端服务器，如果后端服务器验证两者相同，则表示身份验证成功
+ECDH非对称加密方式交换对称密钥流程：
+1️⃣调用方法generateKeys生成密钥对(公钥64字节和私钥32字节)
+2️⃣调用sendPublicKey方法，将步骤2️⃣的公钥发给另一方
+3️⃣等待另一方Notify发送它的公钥过来，调用configThirdPublicKey将另一方的公钥和自己的私钥生成share key，对方也通过3️⃣接收到的公钥与其私钥生成share key，两个share key是一样的
+4️⃣将共享密钥发送到后端服务器，如果后端服务器验证两者相同，则表示身份验证成功
 
 The process of exchanging symmetric keys using ECDH asymmetric encryption method:
 1 Call method generateKeys to generate a key pair (64 bytes for public key and 32 bytes for private key).
@@ -16,19 +16,20 @@ The process of exchanging symmetric keys using ECDH asymmetric encryption method
 4 Send the share key to the backend server, and if the backend server verifies that both are the same, it indicates successful authentication.
 
 # ECDH asymmetric encryption example:
-set compressedPublicKey = false
+✳️Param: set compressedPublicKey = false
 
-GMEllipticCurveCrypto1 generateKeyPair:
+1️⃣GMEllipticCurveCrypto1 generateKeyPair:
 publicKey1: "d4b78cec17668f06ae96943d71049c7f75a620cb50b6facff9bdb09a174f7a808c22f0e51f1b2578e9fd7682be17fb8e07deb6517b68880273baee7fc4d6efdd"
 privateKey1: "jCfYOOEE+t2BHvUHjp1O0RObXhND7JLV9BaHGR1XDZE="
 
-GMEllipticCurveCrypto2 generateKeyPair:
+2️⃣GMEllipticCurveCrypto2 generateKeyPair:
 publicKey2: "79cff9b55e086234c43f5c64a775eb20f39c7dc11bf3b2962677d6019c42af5cf57d6d5007fa7ccc94bddec7b1b8fdbf68e50642de88b7223e40007602290e50"
 privateKey2: "ISfGAyQrHKX4ELRoZLls3TqBXVf7yqoahEgj7RMX0Us="
 
+3️⃣generateSharedKeyWithOtherPK
 sharedKey1 = GMEllipticCurveCrypto1.sharedSecret(forPublicKey: publicKey2)
 sharedKey2 = GMEllipticCurveCrypto2.sharedSecret(forPublicKey: publicKey1)
 
-//sharedKey1 should equal to sharedKey2
+//✅Result: sharedKey1 should equal to sharedKey2
 sharedKey1: "2fd727d984828a28ab6a521f53dd2d06c67fbb80104aef8c1369a9e352094424"
 sharedKey2: "2fd727d984828a28ab6a521f53dd2d06c67fbb80104aef8c1369a9e352094424"
