@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "ECDHAlgorithmiOS"
-  spec.version      = "1.0.1"
+  spec.version      = "1.0.2"
   spec.summary      = "A key exchange protocol algorithm based on elliptic curve cryptography for iOS."
 
   # This description is used to generate tags and improve search results.
@@ -42,7 +42,7 @@ A key exchange protocol algorithm based on elliptic curve cryptography for iOS.
   #
 
   # spec.license      = "MIT (example)"
-  spec.license      = { :type => "MIT", :file => "FILE_LICENSE" }
+  spec.license      = { :type => "MIT", :file => "LICENSE" }
 
 
   # ――― Author Metadata  ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
