@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "ECDHAlgorithmiOS"
-  spec.version      = "1.0.2"
+  spec.version      = "1.0.3"
   spec.summary      = "A key exchange protocol algorithm based on elliptic curve cryptography for iOS."
 
   # This description is used to generate tags and improve search results.
@@ -27,6 +27,13 @@ Pod::Spec.new do |spec|
   spec.description  = <<-DESC
 
 A key exchange protocol algorithm based on elliptic curve cryptography for iOS.
+
+The process of exchanging symmetric keys using ECDH asymmetric encryption method:
+1 Connect the device, obtain CBService, obtain CBCharacteristic, subscribe to CBCharacteristic Notify: peripheral.setNotifyValue(true, for: characteristic)
+2 Call method generateKeys to generate a key pair (64 bytes for public key and 32 bytes for private key)
+3 Call the sendPublicKey method to convert step 2 Send the public key to the other party
+4 Wait for the other party to notify and send its public key, call configThirdPublicKey to generate a share key from the other party's public key and its own private key, and the other party also uses step 3 The received public key and its private key generate a share key, and the two share keys are the same
+Send the share key to the backend server, and if the backend server verifies that both are the same, it indicates successful authentication
 
                    DESC
 
@@ -67,7 +74,7 @@ A key exchange protocol algorithm based on elliptic curve cryptography for iOS.
   #
 
   # spec.platform     = :ios
-  # spec.platform     = :ios, "5.0"
+  spec.platform     = :ios, "12.0"
 
   #  When using multiple platforms
   # spec.ios.deployment_target = "5.0"
