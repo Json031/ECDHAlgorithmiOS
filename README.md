@@ -49,7 +49,7 @@ pod 'ECDHAlgorithmiOS' # Full version with all features
 ## 手动安装
 将Classes文件夹拽入项目中，导入头文件：#import "ECDHAlgorithmiOS.h"
 
-## Troubleshooting
+# Troubleshooting
 
 <details>
   <summary><code>Missing sharedKey，Please obtain the public key from a third party first, and then pass it to the sharedScreetForPublicKey method of GMEllipticCurveCrypto to generate the share key</code></summary>
@@ -60,5 +60,5 @@ Need to obtain the public key from a third party first, then go to generateShare
 
 <br>
 
-## License
+# License
 This library is licensed under the [MIT License](https://github.com/Json031/ECDHAlgorithmiOS/blob/main/LICENSE).
