@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "ECDHAlgorithmiOS"
-  spec.version      = "1.0.0"
+  spec.version      = "1.0.1"
   spec.summary      = "A key exchange protocol algorithm based on elliptic curve cryptography for iOS."
 
   # This description is used to generate tags and improve search results.
@@ -25,6 +25,9 @@ Pod::Spec.new do |spec|
   #   * Write the description between the DESC delimiters below.
   #   * Finally, don't worry about the indent, CocoaPods strips it!
   spec.description  = <<-DESC
+
+A key exchange protocol algorithm based on elliptic curve cryptography for iOS.
+
                    DESC
 
   spec.homepage     = "https://github.com/Json031/ECDHAlgorithmiOS"
@@ -38,8 +41,8 @@ Pod::Spec.new do |spec|
   #  Popular ones are 'MIT', 'BSD' and 'Apache License, Version 2.0'.
   #
 
-  spec.license      = "MIT (example)"
-  # spec.license      = { :type => "MIT", :file => "FILE_LICENSE" }
+  # spec.license      = "MIT (example)"
+  spec.license      = { :type => "MIT", :file => "FILE_LICENSE" }
 
 
   # ――― Author Metadata  ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
