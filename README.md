@@ -33,3 +33,36 @@ sharedKey2 = GMEllipticCurveCrypto2.sharedSecret(forPublicKey: publicKey1)
 ✅Result: sharedKey1 should equal to sharedKey2
 sharedKey1: "2fd727d984828a28ab6a521f53dd2d06c67fbb80104aef8c1369a9e352094424"
 sharedKey2: "2fd727d984828a28ab6a521f53dd2d06c67fbb80104aef8c1369a9e352094424"
+
+
+#### Using XCode to build the project
+
+0. Install XCode. You can install XCode from https://developer.apple.com/download/all/
+
+1. The [ECDHAlgorithmiOS SDK for iOS](https://github.com/Json031/ECDHAlgorithmiOS) is available through [CocoaPods](http://cocoapods.org). If CocoaPods is not installed, install it using the following command. Note that Ruby will also be installed, as it is a dependency of Cocoapods.
+   ```bash
+   brew install cocoapods
+   pod setup
+   ```
+
+2. Installation 安装:
+
+# CocoaPods
+pod 'ECDHAlgorithmiOS' # Full version with all features
+
+# 手动安装
+将Classes文件夹拽入项目中，导入头文件：#import "ECDHAlgorithmiOS.h"
+
+## Troubleshooting
+
+<details>
+  <summary><code>Missing sharedKey，Please obtain the public key from a third party first, and then pass it to the sharedScreetForPublicKey method of GMEllipticCurveCrypto to generate the share key</code></summary>
+
+Need to obtain the public key from a third party first, then go to generateSharedKeyWithOtherPK.
+
+</details>
+
+<br>
+
+## License
+This library is licensed under the [MIT License](https://github.com/Json031/ECDHAlgorithmiOS/blob/main/LICENSE).
