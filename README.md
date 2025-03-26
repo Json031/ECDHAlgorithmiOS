@@ -30,6 +30,6 @@ privateKey2: "ISfGAyQrHKX4ELRoZLls3TqBXVf7yqoahEgj7RMX0Us="
 sharedKey1 = GMEllipticCurveCrypto1.sharedSecret(forPublicKey: publicKey2)
 sharedKey2 = GMEllipticCurveCrypto2.sharedSecret(forPublicKey: publicKey1)
 
-//✅Result: sharedKey1 should equal to sharedKey2
+✅Result: sharedKey1 should equal to sharedKey2
 sharedKey1: "2fd727d984828a28ab6a521f53dd2d06c67fbb80104aef8c1369a9e352094424"
 sharedKey2: "2fd727d984828a28ab6a521f53dd2d06c67fbb80104aef8c1369a9e352094424"
