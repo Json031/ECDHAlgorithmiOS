@@ -12,9 +12,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface ECDHAlgorithmiOS : NSObject
 
+@property (nonatomic, assign) GMEllipticCurve gmellipticCurve;
 
-//GME elliptic curve encryption object
-@property (nonatomic, strong) GMEllipticCurveCrypto * _Nullable gmellipticCurveCrypto;
+// If false, the public key is 65 bytes, with the first byte being 04. If true, the public key is 32 bytes
+@property (nonatomic, assign) Boolean compressedPublicKey;
 
 + (instancetype)shareRequest;
 #pragma mark GMEllipticCurveCrypto
@@ -22,7 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
 /// - Parameters:
 ///   - gmellipticCurve: GMEllipticCurveSecp256r1
 ///   - compressedPublicKey: If false, the public key is 65 bytes, with the first byte being 04. If true, the public key is 32 bytes
-- (void)generateKeys:(GMEllipticCurve *)gmellipticCurve  compressedPublicKey:(Boolean)compressedPublicKey;
+- (void)generateKeys:(GMEllipticCurve)gmellipticCurve  compressedPublicKey:(Boolean)compressedPublicKey;
 
 /// Obtain the public key and send it to the other party, the other party can get the share key with this public key
 - (NSData *)getPublicKey;
@@ -33,7 +34,10 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)generateSharedKeyWithOtherPK:(NSString *)otherPKStr;
 
 /// A shared key generated from the public key of another party (server or device) of 64 bytes and its own private key of 32 bytes
-- (NSData * _Nullable)sharedKey;
+- (NSData * _Nullable)getSharedKey;
+
+- (void)resetGMEllipticCurveCrypto;
+
 @end
 
 NS_ASSUME_NONNULL_END
