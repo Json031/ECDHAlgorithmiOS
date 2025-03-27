@@ -42,6 +42,7 @@
     self.gmellipticCurveCrypto = [GMEllipticCurveCrypto generateKeyPairForCurve:gmellipticCurve];
 }
 
+//If false, the public key is 65 bytes, with the first byte being 04. If true, the public key is 32 bytes
 - (void)setCompressedPublicKey:(Boolean)compressedPublicKey {
     _compressedPublicKey = compressedPublicKey;
     self.gmellipticCurveCrypto.compressedPublicKey = compressedPublicKey;
@@ -53,13 +54,8 @@
 ///   - gmellipticCurve: GMEllipticCurveSecp256r1
 ///   - compressedPublicKey: If false, the public key is 65 bytes, with the first byte being 04. If true, the public key is 32 bytes
 - (void)generateKeys:(GMEllipticCurve)gmellipticCurve  compressedPublicKey:(Boolean)compressedPublicKey {
-    if (self.gmellipticCurveCrypto != nil) {
-        return;
-    }
     self.gmellipticCurve = gmellipticCurve;
     self.compressedPublicKey = compressedPublicKey;
-    //If false, the public key is 65 bytes, with the first byte being 04. If true, the public key is 32 bytes
-    self.gmellipticCurveCrypto.compressedPublicKey = compressedPublicKey;
 }
 
 /// Obtain the public key and send it to the other party, the other party can get the share key with this public key
